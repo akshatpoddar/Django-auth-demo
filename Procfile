@@ -1,1 +1,1 @@
-web: gunicorn signinDemo.wsgi --log-file -
+web: gunicorn signinDemo.wsgi:application --preload --log-file -
