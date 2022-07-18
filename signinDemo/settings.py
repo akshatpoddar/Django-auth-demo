@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +30,10 @@ SECRET_KEY = 'django-insecure-86@q@ksr+hutenhc1(d3bs+0ii_i!9snm97836!ntac-ngsz@c
 DEBUG = False
 
 ALLOWED_HOSTS = ['*',]
+
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
 # Application definition
@@ -82,12 +90,13 @@ WSGI_APPLICATION = 'signinDemo.wsgi.application'
 #     }
 # }
 
+
 DATABASES={
    'default':{
       'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'d61mlon4jg7kjh',
-      'USER':'ekwwzwpgpsqpfo',
-      'PASSWORD':'c75787686339b6cc2e032df2c6101a916ef3dab20a11d2b086c9a625847f961b',
+      'NAME': env('DATABASE_NAME'),
+      'USER': env('DATABASE_USER'),
+      'PASSWORD':env('DATABASE_PASS'),
       'HOST':'postgres://ekwwzwpgpsqpfo:c75787686339b6cc2e032df2c6101a916ef3dab20a11d2b086c9a625847f961b@ec2-3-219-52-220.compute-1.amazonaws.com:5432/d61mlon4jg7kjh',
       'PORT':'5432',
    }
