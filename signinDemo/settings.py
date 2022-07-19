@@ -100,7 +100,7 @@ DATABASES={
       'NAME': env('DATABASE_NAME'),
       'USER': env('DATABASE_USER'),
       'PASSWORD':env('DATABASE_PASS'),
-      'HOST':'postgres://ekwwzwpgpsqpfo:c75787686339b6cc2e032df2c6101a916ef3dab20a11d2b086c9a625847f961b@ec2-3-219-52-220.compute-1.amazonaws.com:5432/d61mlon4jg7kjh',
+      'HOST':'ec2-3-219-52-220.compute-1.amazonaws.com',
       'PORT':'5432',
    }
 }
